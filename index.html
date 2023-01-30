@@ -25,7 +25,19 @@
     <br/>
 
     <button class="connect">Connect</button>
-    <button class="sendHello">Send Hello</button>
+  <button class="sendHello">Send Hello</button>
+
+  <form id="storeAddress">
+    <fieldset>
+      <legend>Save an address to your address book</legend>
+      <!-- <label for="nameToStore">Name</label>
+      <input type="text" id="nameToStore" name="nameToStore"><br>
+      <label for="addressToStore">Address</label> 
+      <input type="text" id="addressToStore" name="addressToStore"><br> -->
+      <input type="submit" id="storeAddress" value="Save">
+    </fieldset>
+  </form>
+</body>
   </body>
 
   <script>
@@ -61,5 +73,41 @@
         alert('Problem happened: ' + err.message || err)
       }
     }
+  const storeAddressForm = document.getElementById('storeAddress')
+  storeAddressForm.addEventListener('submit', storeAddress)
+
+  async function storeAddress (e) {
+    e.preventDefault() // to prevent default form behavior 
+
+    // const name = document.getElementById('nameToStore').value
+    // const address = document.getElementById('addressToStore').value
+
+    try { 
+      ethereum
+    .request({ method: 'eth_requestAccounts' })
+    .then(async (handleAccountsChanged) => {
+      const response = await ethereum.request({
+          method: 'wallet_invokeSnap', 
+          params: [snapId, {
+            method: 'storeAddress',
+            params: { 
+            addressToStore: handleAccountsChanged
+            }
+          }, ]
+        })
+    })
+    .catch((error) => {
+      if (error.code === 4001) {
+        // EIP-1193 userRejectedRequest error
+        console.log('Please connect to MetaMask.');
+      } else {
+        console.error(error);
+      }
+    });
+    } catch (err) { 
+        console.error(err)
+        alert('Problem happened: ' + err.message || err)
+    }
+  }
   </script>
 </html>
