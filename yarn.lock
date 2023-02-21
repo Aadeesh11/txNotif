@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -2090,13 +2090,14 @@ __metadata:
   linkType: hard
 
 "@metamask/utils@npm:^3.3.0":
-  version: 3.3.1
-  resolution: "@metamask/utils@npm:3.3.1"
+  version: 3.6.0
+  resolution: "@metamask/utils@npm:3.6.0"
   dependencies:
     "@types/debug": ^4.1.7
     debug: ^4.3.4
-    superstruct: ^0.16.7
-  checksum: 5b6b6b54fdff4bc3f77b31ef50c23adca8fdf21d81d4f68d3d9c2b383b145cd61c2435f5ba0a11344484ae1f6d2355fab82eec58ce6b19eb35b476928b2e4ee6
+    semver: ^7.3.8
+    superstruct: ^1.0.3
+  checksum: 1ebc6677bb017e4d09d4af143621fe27194d8ed815234cfd76469c3c734dc1db2ea7b577c01a2096c21c04d8c9c4d721d3035b5353fe2ded3b4737f326755e43
   languageName: node
   linkType: hard
 
@@ -5964,6 +5965,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"semver@npm:^7.3.8":
+  version: 7.3.8
+  resolution: "semver@npm:7.3.8"
+  dependencies:
+    lru-cache: ^6.0.0
+  bin:
+    semver: bin/semver.js
+  checksum: ba9c7cbbf2b7884696523450a61fee1a09930d888b7a8d7579025ad93d459b2d1949ee5bbfeb188b2be5f4ac163544c5e98491ad6152df34154feebc2cc337c1
+  languageName: node
+  linkType: hard
+
 "serve-handler@npm:^6.1.5":
   version: 6.1.5
   resolution: "serve-handler@npm:6.1.5"
@@ -6273,6 +6285,13 @@ __metadata:
   version: 0.16.7
   resolution: "superstruct@npm:0.16.7"
   checksum: c8c855ff6945da8a41048c6d236de7b1af5d4d9c31742b3ee54d65647c31597488620281f65e095d5efc9e2fbdaad529b8c8f2506c12569d428467c835a21477
+  languageName: node
+  linkType: hard
+
+"superstruct@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "superstruct@npm:1.0.3"
+  checksum: 761790bb111e6e21ddd608299c252f3be35df543263a7ebbc004e840d01fcf8046794c274bcb351bdf3eae4600f79d317d085cdbb19ca05803a4361840cc9bb1
   languageName: node
   linkType: hard
 
